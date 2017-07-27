@@ -4,7 +4,7 @@ ICT201 Web Development Project
 
 [http://45.77.45.197](http://45.77.45.197)
 
-### `Installing`
+### Installing
 
 Please go ahead to create firebase database.
 
@@ -30,7 +30,7 @@ Firebase database structure
 }
 ```
 
-And update the firebase `firebaseCredentials` on src/app/app.constants.js
+And update the firebase `firebaseCredentials` on `src/app/app.constants.js`
 
 ```
 {
