@@ -2,9 +2,7 @@
 
 ICT201 Web Development Project
 
-```
 [http://45.77.45.197](http://45.77.45.197)
-```
 
 ### `Installing`
 
@@ -42,12 +40,6 @@ And update the firebase `firebaseCredentials` on src/app/app.constants.js
     projectId: 'ict201-6b3fb',
     storageBucket: 'ict201-6b3fb.appspot.com',
 }
-```
-
-Lastly run the npm install to install packages and bower components.
-
-```
-npm install
 ```
 
 Lastly run the npm install to install packages and bower components.
