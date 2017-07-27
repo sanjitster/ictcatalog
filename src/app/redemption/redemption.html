@@ -1,0 +1,43 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 margin-top-24">
+            <ol class="breadcrumb">
+                <li><a ui-sref="dashboard">Redemption</a></li>
+                <li class="active">{{r.exchange.name}}</li>
+            </ol>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-xs-12 col-sm-4 col-md-4">
+            <img ng-src="{{r.exchange.template}}" alt="{{r.exchange.name}}" class="img-responsive img-rounded img-center">
+        </div>
+        <div class="col-xs-12 col-sm-8 col-md-8" style="margin-bottom: 35px;">
+            <div class="row">
+                <div class="col-md-12">
+                    <h3>{{r.exchange.name}}</h3>
+                    <p>Looking for the perfect gift. Buy a eGift Card for someone. Offer a friend the gift of choosing his own
+                        present. This is not a credit/debit card and has no implied warranties. This card is not redeemable
+                        for cash unless required by law and cannot be used to make payments on any charge account. Gift Cards
+                        cannot be used to buy other Gift Cards. Merchant reserves the right to deactivate or reject any Gift
+                        Card issued or procured, directly or indirectly, in connection with fraudulent actions, unless prohibited
+                        by law.
+                    </p>
+                </div>
+                <div class="col-xs-12">
+                    <p><strong>Process your redemption: </strong></p>
+                    <form ng-submit="r.sendCard()" novalidate>
+                        <fieldset ng-disabled="r.isDisabled">
+                            <formly-form model="r.buyFormModel" fields="r.buyFormFields" form="r.buyForm" options="r.buyFormOptions">
+                                <button type="submit" class="btn btn-primary btn-block" ng-disabled="r.buyForm.$invalid">Confirm</button>
+                            </formly-form>
+                        </fieldset>
+                    </form>
+                </div>
+                <div class="col-md-12">
+                    <div uib-alert ng-repeat="alert in alerts" ng-class="'margin-top-15 alert-' + (alert.type || 'warning')" close="alert.close()"
+                        dismiss-on-timeout="{{alert.timeout}}">{{alert.msg}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

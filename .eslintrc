@@ -1,0 +1,40 @@
+{
+    "extends": "eslint:recommended",
+    "plugins": [
+        "angular"
+    ],
+    "rules": {
+        "angular/di": [2, "array"],
+        "indent": [2, 4, { "SwitchCase": 1 }],
+        "linebreak-style": [2, "unix"],
+        "quotes": [2, "single"],
+        "semi": [2, "always"],
+        "eqeqeq": 2,
+        "comma-dangle": 2,
+        "no-cond-assign": [2, "always"],
+        "no-redeclare": [2, { "builtinGlobals": true }],
+        "no-delete-var": 2,
+        "no-undef": 2,
+        "no-unused-vars": 2,
+        "array-bracket-spacing": [2, "never", { "singleValue": false, "objectsInArrays": false, "arraysInArrays": false }],
+        "camelcase": [2, { "properties": "always" }],
+        "func-style": [2, "declaration"],
+        "no-mixed-spaces-and-tabs": 2,
+        "no-trailing-spaces": [2, { "skipBlankLines": true }],
+        "no-underscore-dangle": 2
+    },
+    "env": {
+        "browser": true,
+        "jasmine": true,
+        "jquery": true
+    },
+    "globals": {
+        "angular": true,
+        "module": true,
+        "inject": true,
+        "require": true,
+        "OSREC": true,
+        "he": true,
+        "firebase": true
+    }
+}

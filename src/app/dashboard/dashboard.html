@@ -1,0 +1,53 @@
+<div class="container">
+    <div class="row">
+        <div class="col-xs-12 col-md-4">
+            <div class="panel panel-default">
+                <div class="panel-heading">Redemption Filter</div>
+                <div class="panel-body">
+                    <form novalidate>
+                        <div class="row">
+                            <formly-form model="t.filterFormModel" fields="t.filterFormFields" form="t.filterForm" options="t.filterFormOptions"></formly-form>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="col-xs-12 col-md-8">
+            <h3>Redeem Rewards <small>Select your redemption options</small></h3>
+            <div class="row">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+                    <ol class="breadcrumb">
+                        <li><a ui-sref="dashboard">Redemption</a></li>
+                        <li class="active" ng-if="filterType.name !== 'Redemption Categories'">{{filterType.name}}</li>
+                    </ol>
+                </div>
+            </div>
+            <div class="row" ng-show="exchangeFilter.length === 0 && t.exchanges !== ''">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <h4>Please enter a valid program name</h4>
+                </div>
+            </div>
+            <div class="row" ng-show="!t.exchanges">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 text-center">
+                    <h4>Please wait while the catalog is being loaded...</h4>
+                </div>
+            </div>
+            <div class="row" infinite-scroll="t.loadMore()" infinite-scroll-distance="1">
+                <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12 col-lg-offset-0">
+                    <div class="row">
+                        <div class="col-sm-6 col-md-4" ng-repeat="exchange in exchangeFilter = (t.exchanges | catalogName:{name:t.filterFormModel.dmoname} | catalogCountry:{country:t.filterFormModel.countries} | catalogUnit: {amount: {values:t.filterFormModel.slider}} | orderBy:'name' | limitTo:t.numberToDisplay)">
+                            <div class="thumbnail">
+                                <img ng-src="{{exchange.template}}" alt="{{exchange.name}}" class="">
+                                <div class="caption">
+                                    <h4 style="white-space: nowrap; overflow: hidden; text-overflow: ellipsis;">{{exchange.name}}</h4>
+                                    <p>{{exchange.amount.min | catalogCurrency : exchange.unit}} <i>(min)</i></p>
+                                    <a ui-sref="redemption({dmoId: exchange.id})" class="btn btn-md btn-link" role="button">Redeem</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
