@@ -1,6 +1,6 @@
 # ictcatalog
 
-ICT201 Web Development Project
+ICT201: Web Development Project
 
 [http://45.77.45.197](http://45.77.45.197)
 
